@@ -5,17 +5,25 @@ package com.gaoyang.algorithmoffer;
  */
 public class Utils {
 
-    public static LinkedNode createOrderLinkedList() {
-        LinkedNode linkedNode10 = new LinkedNode(10);
-        LinkedNode linkedNode9 = new LinkedNode(9, linkedNode10);
-        LinkedNode linkedNode8 = new LinkedNode(8, linkedNode9);
-        LinkedNode linkedNode7 = new LinkedNode(7, linkedNode8);
-        LinkedNode linkedNode6 = new LinkedNode(6, linkedNode7);
-        LinkedNode linkedNode5 = new LinkedNode(5, linkedNode6);
-        LinkedNode linkedNode4 = new LinkedNode(4, linkedNode5);
-        LinkedNode linkedNode3 = new LinkedNode(3, linkedNode4);
-        LinkedNode linkedNode2 = new LinkedNode(2, linkedNode3);
-        LinkedNode linkedNode1 = new LinkedNode(1, linkedNode2);
+    public static ListNode createOrderLinkedList() {
+        ListNode linkedNode10 = new ListNode(10);
+        ListNode linkedNode9 = new ListNode(9, linkedNode10);
+        ListNode linkedNode8 = new ListNode(8, linkedNode9);
+        ListNode linkedNode7 = new ListNode(7, linkedNode8);
+        ListNode linkedNode6 = new ListNode(6, linkedNode7);
+        ListNode linkedNode5 = new ListNode(5, linkedNode6);
+        ListNode linkedNode4 = new ListNode(4, linkedNode5);
+        ListNode linkedNode3 = new ListNode(3, linkedNode4);
+        ListNode linkedNode2 = new ListNode(2, linkedNode3);
+        ListNode linkedNode1 = new ListNode(1, linkedNode2);
         return linkedNode1;
+    }
+
+    public static void printListNode(ListNode listNode) {
+        ListNode listNode1 = listNode;
+        while (listNode1 != null) {
+            System.out.println(listNode1.value);
+            listNode1 = listNode1.next;
+        }
     }
 }

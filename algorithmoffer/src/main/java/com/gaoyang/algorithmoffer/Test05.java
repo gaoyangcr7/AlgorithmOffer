@@ -8,7 +8,7 @@ import java.util.Stack;
 //从尾到头打印链表
 public class Test05 {
 
-    private static void printLinkedList(LinkedNode linkedNode) {
+    private static void printLinkedList(ListNode linkedNode) {
         if (linkedNode == null) {
             return;
         }
@@ -17,7 +17,7 @@ public class Test05 {
         }
 
 
-        Stack<LinkedNode> stack = new Stack<>();
+        Stack<ListNode> stack = new Stack<>();
         stack.push(linkedNode);
         while (linkedNode.next != null) {
             linkedNode = linkedNode.next;

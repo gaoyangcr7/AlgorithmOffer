@@ -3,16 +3,16 @@ package com.gaoyang.algorithmoffer;
 /**
  * Created by gaoyang on 2018/06/06.
  */
-public class LinkedNode {
-    public LinkedNode(int value) {
+public class ListNode {
+    public ListNode(int value) {
         this.value = value;
     }
 
-    public LinkedNode(int value, LinkedNode next) {
+    public ListNode(int value, ListNode next) {
         this.value = value;
         this.next = next;
     }
 
     public int value;
-    public LinkedNode next;
+    public ListNode next;
 }
