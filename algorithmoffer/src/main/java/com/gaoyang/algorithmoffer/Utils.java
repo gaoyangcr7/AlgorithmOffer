@@ -46,11 +46,13 @@ public class Utils {
             System.out.println("null");
             return;
         }
+        System.out.println("~~~~~~~~~~~~~~~PRINT START~~~~~~~~~~~~~~~");
         ListNode listNode1 = listNode;
         while (listNode1 != null) {
             System.out.println(listNode1.value);
             listNode1 = listNode1.next;
         }
+        System.out.println("~~~~~~~~~~~~~~~PRINT END~~~~~~~~~~~~~~~");
     }
 
     public static void swap(int arr[], int firstIndex, int secondIndex) {
