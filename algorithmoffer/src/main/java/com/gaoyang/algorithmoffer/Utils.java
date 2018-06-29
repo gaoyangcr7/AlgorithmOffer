@@ -69,4 +69,36 @@ public class Utils {
         arr[secondIndex] = tmp;
 
     }
+
+    public static void preOrderTree(TreeNode node) {
+        if (node != null) {
+            System.out.print(node.value+" ");
+            preOrderTree(node.left);
+            preOrderTree(node.right);
+        }
+    }
+
+    /**
+     *
+     *           8
+     *         /   \
+     *        6    10
+     *       / \  / \
+     *      5  7 9  11
+     *
+     * @return
+     */
+    public static TreeNode createTree() {
+        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode treeNode7 = new TreeNode(7);
+        TreeNode treeNode9 = new TreeNode(9);
+        TreeNode treeNode11 = new TreeNode(11);
+        TreeNode treeNode10 = new TreeNode(10, treeNode9, treeNode11);
+        TreeNode treeNode6 = new TreeNode(6, treeNode5, treeNode7);
+        TreeNode treeNode8 = new TreeNode(8, treeNode6, treeNode10);
+
+
+
+        return treeNode8;
+    }
 }

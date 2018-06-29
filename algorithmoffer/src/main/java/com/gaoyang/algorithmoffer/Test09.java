@@ -1,7 +1,7 @@
 package com.gaoyang.algorithmoffer;
 
 //斐波那契数列
-public class Test9 {
+public class Test09 {
 
     private static int fibonacci(int n) {
         if (n < 0) {
