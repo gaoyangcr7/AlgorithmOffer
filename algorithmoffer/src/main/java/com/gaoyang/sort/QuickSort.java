@@ -9,23 +9,23 @@ public class QuickSort {
 
     private static void quickSort(int[] arr, int left, int right) {
 
-        if (arr == null) {
+        if (arr == null || left > right) {
             return;
         }
 
         int key = arr[left];
-        int partition = partitionIt(arr, left+1, right, key);
-        quickSort(arr, left + 1, partition - 1);
+        int partition = partitionIt(arr, left, right, key);
+        quickSort(arr, left, partition - 1);
         quickSort(arr, partition + 1, right);
     }
 
     private static int partitionIt(int[] arr, int left, int right, int key) {
-        System.out.println("key = "+key);
+        System.out.println("key = " + key);
         int initLeft = left;
         int i = left;
         int j = right;
 
-        while (true) {
+        while (i < j) {
             while (i < j && arr[j] >= key) {
                 j--;
             }
@@ -34,13 +34,12 @@ public class QuickSort {
                 i++;
             }
 
-            if (arr[i] > arr[j]) {
-                Utils.swap(arr, i, j);
-            }
-
-            if (i >= j) {
+            if (i > j) {
                 break;
             }
+
+            Utils.swap(arr, i, j);
+
         }
 
         Utils.swap(arr, i, initLeft);
@@ -53,8 +52,8 @@ public class QuickSort {
 
         quickSort(arr, 0, arr.length - 1);
 
-        for (int i = 0; i < arr.length-1; i++) {
-            System.out.print(arr[i]+" ");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
     }
 }
