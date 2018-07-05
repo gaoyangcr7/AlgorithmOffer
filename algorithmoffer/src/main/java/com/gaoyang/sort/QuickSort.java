@@ -7,7 +7,7 @@ import com.gaoyang.algorithmoffer.Utils;
  */
 public class QuickSort {
 
-    private static void quickSort(int[] arr, int left, int right) {
+    public static void quickSort(int[] arr, int left, int right) {
 
         if (arr == null || left > right) {
             return;
@@ -15,11 +15,12 @@ public class QuickSort {
 
         int key = arr[left];
         int partition = partitionIt(arr, left, right, key);
+        System.out.println(partition);
         quickSort(arr, left, partition - 1);
         quickSort(arr, partition + 1, right);
     }
 
-    private static int partitionIt(int[] arr, int left, int right, int key) {
+    public static int partitionIt(int[] arr, int left, int right, int key) {
         System.out.println("key = " + key);
         int initLeft = left;
         int i = left;
