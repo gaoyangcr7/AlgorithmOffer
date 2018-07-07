@@ -1,77 +1,68 @@
 package com.gaoyang.algorithmoffer;
 
+import java.util.Iterator;
+import java.util.Stack;
+
 /**
- * Created by gaoyang on 2018/07/05.
- * 丑数
- * 只包含因子2、3、5的数叫丑数
+ * Created by gaoyang on 2018/06/28.
+ * 第一版第25题
+ * 二叉树中和为某一值的路径
+ * 输入一个二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径
+ * 从树的根节点开始往下一直到叶节点锁经过的节点形成一条路径
  */
 public class Test34 {
 
-    private static boolean isUgly(int number) {
-        System.out.println("isUngly " + number);
-        if (number < 1) return false;
-        while (number % 2 == 0) {
-            number /= 2;
-        }
-        while (number % 3 == 0) {
-            number /= 3;
-        }
-        while (number % 5 == 0) {
-            number /= 5;
-        }
+    public static void main(String[] args) {
 
-        System.out.println(number + "is ugly number ? " + (number == 1));
+        int target = 22;
+        int currentSum = 0;
+        Stack<TreeNode> stackSum = new Stack<>();
 
-        return number == 1;
+        hasSum(createTree(), target, currentSum, stackSum);
     }
 
-    //笨办法，占用时间
-    private static int getUglyNumber(int index) {
-        if (index <= 0) return 0;
+    private static void hasSum(TreeNode rootNode, int target, int sum, Stack<TreeNode> stack) {
+        if (rootNode == null) return;
 
-        int count = 0;
+        sum += rootNode.value;
+        stack.push(rootNode);
+        boolean isLeaf = rootNode.left == null && rootNode.right == null;
 
-        for (int i = 0; i < index; i++) {
-            if (isUgly(i)) {
-                count++;
+        if (isLeaf && sum == target) {
+            System.out.println("\npath found");
+            Iterator<TreeNode> iterator = stack.iterator();
+            while (iterator.hasNext()) {
+                System.out.printf(iterator.next().value + " ");
             }
         }
 
-        return count;
-    }
-
-    //控件换时间TODO
-    private static int getUglyNumber2(int index) {
-        if (index < 0)
-            return 0;
-        int[] uglyArray = new int[index];
-        uglyArray[0] = 1;
-        int multiply2 = 0;
-        int multiply3 = 0;
-        int multiply5 = 0;
-        for (int i = 1; i < index; i++) {
-            int min = min(uglyArray[multiply2] * 2, uglyArray[multiply3] * 3, uglyArray[multiply5] * 5);
-            uglyArray[i] = min;
-            while (uglyArray[multiply2] * 2 == uglyArray[i])
-                multiply2++;
-            while (uglyArray[multiply3] * 3 == uglyArray[i])
-                multiply3++;
-            while (uglyArray[multiply5] * 5 == uglyArray[i])
-                multiply5++;
+        if (rootNode.left != null) {
+            hasSum(rootNode.left, target, sum, stack);
         }
-        return uglyArray[index - 1];
+        if (rootNode.right != null) {
+            hasSum(rootNode.right, target, sum, stack);
+        }
 
+        sum -= rootNode.value;
+        stack.pop();
     }
 
-    public static int min(int number1, int number2, int number3) {
-        int min = (number1 < number2) ? number1 : number2;
-        return min < number3 ? min : number3;
-    }
+    /**
+     * 10
+     * /   \
+     * 5    12
+     * / \
+     * 4  7
+     *
+     * @return
+     */
+    private static TreeNode createTree() {
+        TreeNode treeNode4 = new TreeNode(4);
+        TreeNode treeNode7 = new TreeNode(7);
+        TreeNode treeNode5 = new TreeNode(5, treeNode4, treeNode7);
+        TreeNode treeNode12 = new TreeNode(12);
+        TreeNode treeNode10 = new TreeNode(10, treeNode5, treeNode12);
 
-    public static void main(String[] args) {
-        System.out.println("##");
-        System.out.println(getUglyNumber2(10));
-        System.out.println("$$");
+        return treeNode10;
     }
-
 }

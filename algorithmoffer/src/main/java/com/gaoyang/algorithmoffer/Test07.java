@@ -2,22 +2,13 @@ package com.gaoyang.algorithmoffer;
 
 /**
  * Created by gaoyang on 2018/06/06.
+ * 第一版第6题
  */
 
-//用两个栈实现队列
+//TODO
+//重建二叉树
 public class Test07 {
-
-    private static void buildList() {
-
-    }
-
-    //队尾插入节点
-    private static void appendTail() {
-
-    }
-
-    //删除队列头部节点
-    private static void deleteHead() {
+    private static void rebuildTree() {
 
     }
 

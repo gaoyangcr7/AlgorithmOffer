@@ -5,9 +5,10 @@ import java.util.List;
 
 /**
  * Created by gaoyang on 2018/06/28.
+ * 第一版23题
  * 从上到下打印二叉树
  */
-public class Test23 {
+public class Test32 {
 
     private static void printTreeTop2Bottom(TreeNode root) {
         if (root == null) return;

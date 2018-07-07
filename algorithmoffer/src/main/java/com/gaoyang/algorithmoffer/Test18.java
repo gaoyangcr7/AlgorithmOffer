@@ -1,69 +1,54 @@
 package com.gaoyang.algorithmoffer;
 
+import java.util.Map;
+
 /**
- * Created by gaoyang on 2018/06/14.
+ * Created by gaoyang on 2018/06/12.
+ * 第一版第13题
  */
-//树的子结构
-//输入两颗二叉树A和B，判断B是不是A的子结构
+//在O(1)时间删除链表节点
 public class Test18 {
 
-    private static boolean hasSubTree(TreeNode fullTreeRoot, TreeNode partTreeRoot) {
-        if (fullTreeRoot == null || partTreeRoot == null) {
-            return false;
+    private static void removeNode2(ListNode headNode, ListNode targetNode) {
+        if (headNode == null || targetNode == null) {
+            return;
         }
 
-        boolean result = false;
-        if (fullTreeRoot.value == partTreeRoot.value) {
-            result = isSubTree(fullTreeRoot, partTreeRoot);
-        }
-        if (!result) {
-            result = hasSubTree(fullTreeRoot.left, partTreeRoot);
+        if (headNode.value == targetNode.value) {
+            headNode = null;
         }
 
-        if (!result) {
-            result = hasSubTree(fullTreeRoot.right, partTreeRoot);
+        ListNode nextNode = targetNode.next;
+        ListNode currentNode = targetNode;
+
+        if (nextNode != null) {
+            //正常情况下
+            currentNode.value = nextNode.value;
+            currentNode.next = nextNode.next;
+        } else {
+            //当目标是最后一个节点的时候
+            ListNode headerNode = headNode;
+            ListNode previewNode = headerNode;
+            while (headerNode != null) {
+
+                if (headerNode.value == targetNode.value) {
+                    previewNode.next = null;
+                    break;
+                }
+
+                previewNode = headerNode;
+                headerNode = headerNode.next;
+
+            }
         }
 
-        return result;
-    }
+        Utils.printListNode(headNode);
 
-
-    private static boolean isSubTree(TreeNode fullTree, TreeNode partTree) {
-        if (partTree == null) {
-            return true;
-        }
-        if (fullTree == null) {
-            return false;
-        }
-
-        if (fullTree.value != partTree.value) {
-            return false;
-        }
-
-        return isSubTree(fullTree.left, partTree.left) && isSubTree(fullTree.right, partTree.right);
     }
 
     public static void main(String[] args) {
-        System.out.println(hasSubTree(createFullTree(), createPartTree()));
-    }
+        Map<Integer, ListNode> map = Utils.createOrderLinkedList13();
+        removeNode2(map.get(1), map.get(2));
 
-
-    private static TreeNode createFullTree() {
-        TreeNode treeNode7 = new TreeNode(7);
-        TreeNode treeNode4 = new TreeNode(4);
-        TreeNode treeNode9 = new TreeNode(9);
-        TreeNode treeNode2 = new TreeNode(2, treeNode4, treeNode7);
-        TreeNode treeNode81 = new TreeNode(8, treeNode9, treeNode2);
-        TreeNode treeNode71 = new TreeNode(7);
-        TreeNode treeNode8 = new TreeNode(8, treeNode81, treeNode71);
-
-        return treeNode8;
-    }
-
-    private static TreeNode createPartTree() {
-        TreeNode treeNode2 = new TreeNode(2);
-        TreeNode treeNode9 = new TreeNode(9);
-        TreeNode treeNode8 = new TreeNode(8, treeNode9, treeNode2);
-        return treeNode8;
     }
 }

@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Created by gaoyang on 2018/06/07.
  */
-public class Test0701 {
+public class Test09_1 {
 
     private static void sortAge(int ages[]) {
         if (ages == null) {

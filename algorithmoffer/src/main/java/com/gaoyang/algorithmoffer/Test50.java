@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import javax.swing.plaf.TextUI;
-
 /**
  * Created by gaoyang on 2018/07/05.
+ * 第一版第35题
+ * 第一个只出现一次的字符
  */
-public class Test35 {
+public class Test50 {
 
     private static char find(String str) {
         char result = 0;

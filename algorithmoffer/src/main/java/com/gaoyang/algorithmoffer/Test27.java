@@ -2,11 +2,12 @@ package com.gaoyang.algorithmoffer;
 
 /**
  * Created by gaoyang on 2018/06/27.
+ * 第一版第19题
  * 二叉树的镜像
  * 输入一个二叉树，函数输出他的镜像
  */
 
-public class Test19 {
+public class Test27 {
 
     private static void printMirror(TreeNode root) {
         if (root == null) {

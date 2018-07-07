@@ -2,11 +2,12 @@ package com.gaoyang.algorithmoffer;
 
 /**
  * Created by gaoyang on 2018/06/29.
+ * 第一版第28题
  * 字符串的排列
  * 输入一个字符串，打印出该字符串中字符的所有排列
  * 如：输入字符串abc。要打出来abc, acb, bac, bca, cab, cba
  */
-public class Test28 {
+public class Test38 {
 
     private static void permutation(char[] s) {
         if (s == null) {

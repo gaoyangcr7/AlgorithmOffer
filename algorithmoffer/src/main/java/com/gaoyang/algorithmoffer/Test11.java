@@ -2,10 +2,11 @@ package com.gaoyang.algorithmoffer;
 
 /**
  * Created by gaoyang on 2018/06/07.
+ * 第一版第8题
  */
 //旋转数组的最小数字
 //TODO
-public class Test08 {
+public class Test11 {
 
     private static int findSmallest(int nums[], int left, int right) {
         int smallestNum = -1;

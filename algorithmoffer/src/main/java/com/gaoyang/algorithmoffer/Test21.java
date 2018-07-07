@@ -1,27 +1,53 @@
 package com.gaoyang.algorithmoffer;
 
-import java.util.Stack;
-
 /**
- * Created by gaoyang on 2018/06/27.
- * 包含min函数的栈
- * 实现一个能够得到栈的 最小元素的min函数。
- * 在该栈中，调用min、push、pop的时间复杂度都是O(1)
+ * Created by gaoyang on 2018/06/13.
+ * 第一版第14题
  */
+
+//调整数组顺序使奇数位于偶数前面
 public class Test21 {
 
+    public static void reorder(int arr[]) {
 
-    public static void main(String[] args) {
+        int front = 0;
+        int back = arr.length - 1;
 
+        int count = 0;
+//        while (front != back) {
+//            count++;
+//            if (arr[front] % 2 == 0) {
+//                Utils.swap(arr, front, back);
+//                back--;
+//            } else {
+//                Utils.swap(arr, front, back);
+//                front++;
+//            }
+//        }
+
+        while (front < back) {
+            count++;
+            while (front < back && arr[front] % 2 != 0) {
+                front++;
+            }
+            while (front < back && arr[back] % 2 == 0) {
+                back--;
+            }
+            if (front < back) {
+                Utils.swap(arr, front, back);
+            }
+        }
+
+
+        for (int i : arr) {
+            System.out.println(i);
+        }
+        System.out.println("count: " + count);
     }
 
-    private static void createStack() {
-        Stack<Integer> stack = new Stack<>();
-        stack.push(3);
-        stack.push(5);
-        stack.push(1);
-        stack.push(5);
-        stack.push(7);
-        stack.push(8);
+    public static void main(String[] args) {
+        int arr[] = {2, 4, 6, 7, 8, 9, 1, 3, 5};
+
+        reorder(arr);
     }
 }

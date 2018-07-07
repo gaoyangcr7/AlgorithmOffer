@@ -1,67 +1,55 @@
 package com.gaoyang.algorithmoffer;
 
-import java.util.Iterator;
-import java.util.Stack;
-
 /**
- * Created by gaoyang on 2018/06/28.
- * 二叉树中和为某一值的路径
- * 输入一个二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径
- * 从树的根节点开始往下一直到叶节点锁经过的节点形成一条路径
+ * Created by gaoyang on 2018/06/14.
+ * 第一版第17题
  */
+
+//合并两个排序的链表
 public class Test25 {
 
+    //递归
+    private static ListNode merge(ListNode one, ListNode two) {
+        ListNode resultNode = null;
+        if (one == null) {
+            return two;
+        } else if (two == null) {
+            return one;
+        }
+
+        if (one.value < two.value) {
+            resultNode = one;
+            resultNode.next = merge(one.next, two);
+        } else {
+            resultNode = two;
+            resultNode.next = merge(one, two.next);
+        }
+
+        return resultNode;
+    }
+
     public static void main(String[] args) {
-
-        int target = 22;
-        int currentSum = 0;
-        Stack<TreeNode> stackSum = new Stack<>();
-
-        hasSum(createTree(), target, currentSum, stackSum);
+        ListNode result = merge(createListOne(), createListTwo());
+        Utils.printListNode(result);
     }
 
-    private static void hasSum(TreeNode rootNode, int target, int sum, Stack<TreeNode> stack) {
-        if (rootNode == null) return;
+    private static ListNode createListOne() {
+        ListNode linkedNode9 = new ListNode(9);
+        ListNode linkedNode7 = new ListNode(7, linkedNode9);
+        ListNode linkedNode5 = new ListNode(5, linkedNode7);
+        ListNode linkedNode3 = new ListNode(3, linkedNode5);
+        ListNode linkedNode1 = new ListNode(1, linkedNode3);
 
-        sum += rootNode.value;
-        stack.push(rootNode);
-        boolean isLeaf = rootNode.left == null && rootNode.right == null;
-
-        if (isLeaf && sum == target) {
-            System.out.println("\npath found");
-            Iterator<TreeNode> iterator = stack.iterator();
-            while (iterator.hasNext()) {
-                System.out.printf(iterator.next().value + " ");
-            }
-        }
-
-        if (rootNode.left != null) {
-            hasSum(rootNode.left, target, sum, stack);
-        }
-        if (rootNode.right != null) {
-            hasSum(rootNode.right, target, sum, stack);
-        }
-
-        sum -= rootNode.value;
-        stack.pop();
+        return linkedNode1;
     }
 
-    /**
-     * 10
-     * /   \
-     * 5    12
-     * / \
-     * 4  7
-     *
-     * @return
-     */
-    private static TreeNode createTree() {
-        TreeNode treeNode4 = new TreeNode(4);
-        TreeNode treeNode7 = new TreeNode(7);
-        TreeNode treeNode5 = new TreeNode(5, treeNode4, treeNode7);
-        TreeNode treeNode12 = new TreeNode(12);
-        TreeNode treeNode10 = new TreeNode(10, treeNode5, treeNode12);
+    private static ListNode createListTwo() {
+        ListNode linkedNode10 = new ListNode(10);
+        ListNode linkedNode8 = new ListNode(8, linkedNode10);
+        ListNode linkedNode6 = new ListNode(6, linkedNode8);
+        ListNode linkedNode4 = new ListNode(4, linkedNode6);
+        ListNode linkedNode2 = new ListNode(2, linkedNode4);
 
-        return treeNode10;
+        return linkedNode2;
     }
 }
