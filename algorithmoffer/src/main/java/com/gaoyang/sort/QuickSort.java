@@ -1,6 +1,6 @@
 package com.gaoyang.sort;
 
-import com.gaoyang.algorithmoffer.Utils;
+import com.gaoyang.Utils;
 
 /**
  * Created by gaoyang on 2018/06/29.
