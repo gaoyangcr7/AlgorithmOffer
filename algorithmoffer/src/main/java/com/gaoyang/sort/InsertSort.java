@@ -23,8 +23,22 @@ public class InsertSort {
         int arrList1[] = {4, 6, 2, 1, 654, 43, 76, 90, 0, 21};
         int arrList2[] = {1, 0, 3, 4, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1};
 
-        sort(arrList);
+        sort2(arrList2);
 
-        Utils.printArr(arrList);
+        Utils.printArr(arrList2);
+    }
+
+    private static void sort2(int arrList[]) {
+        if (arrList == null || arrList.length == 0) {
+            return;
+        }
+
+        for (int i = 1; i < arrList.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (arrList[j] < arrList[j - 1]) {
+                    Utils.swap(arrList, j, j - 1);
+                }
+            }
+        }
     }
 }

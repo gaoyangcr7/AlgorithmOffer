@@ -19,13 +19,14 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int arrList[] = {4, 8, 1, 3, 5, 0, 8, 4, 7, 2, 6, 9};
+        int arrList[] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
         int arrList1[] = {4, 6, 2, 1, 654, 43, 76, 90, 0, 21};
         int arrList2[] = {1, 0, 3, 4, 0, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1};
 
-        sort(arrList2);
+        sort(arrList);
 
-        Utils.printArr(arrList2);
+        Utils.printArr(arrList);
 
     }
+
 }

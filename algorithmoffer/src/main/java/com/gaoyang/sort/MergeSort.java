@@ -61,4 +61,5 @@ public class MergeSort {
 
         Utils.printArr(arrList);
     }
+
 }
