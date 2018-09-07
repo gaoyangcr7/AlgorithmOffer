@@ -43,15 +43,15 @@ public class Test34 {
             hasSum(rootNode.right, target, sum, stack);
         }
 
-        sum -= rootNode.value;
+//        sum -= rootNode.value;
         stack.pop();
     }
 
     /**
-     * 10
-     * /   \
-     * 5    12
-     * / \
+     *     10
+     *    /  \
+     *   5   12
+     *  / \
      * 4  7
      *
      * @return

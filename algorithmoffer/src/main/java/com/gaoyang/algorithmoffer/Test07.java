@@ -5,7 +5,7 @@ package com.gaoyang.algorithmoffer;
  * 第一版第6题
  */
 
-//TODO
+  //TODO
 //重建二叉树
 public class Test07 {
     private static void rebuildTree() {
