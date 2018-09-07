@@ -1,6 +1,6 @@
 package com.gaoyang.sort;
 
-import com.gaoyang.algorithmoffer.Utils;
+import com.gaoyang.Utils;
 
 /**
  * Created by gaoyang on 2018/06/29.
@@ -15,13 +15,11 @@ public class QuickSort {
 
         int key = arr[left];
         int partition = partitionIt(arr, left, right, key);
-        System.out.println(partition);
         quickSort(arr, left, partition - 1);
         quickSort(arr, partition + 1, right);
     }
 
     public static int partitionIt(int[] arr, int left, int right, int key) {
-        System.out.println("key = " + key);
         int initLeft = left;
         int i = left;
         int j = right;
@@ -52,9 +50,8 @@ public class QuickSort {
         int[] arr = {3, 5, 8, 9, 6, 1, 2, 7, 4};
 
         quickSort(arr, 0, arr.length - 1);
-
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        Utils.printArr(arr);
     }
+
+
 }

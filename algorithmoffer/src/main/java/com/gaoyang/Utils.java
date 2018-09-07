@@ -1,5 +1,8 @@
-package com.gaoyang.algorithmoffer;
+package com.gaoyang;
 
+
+import com.gaoyang.algorithmoffer.ListNode;
+import com.gaoyang.algorithmoffer.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -72,19 +75,18 @@ public class Utils {
 
     public static void preOrderTree(TreeNode node) {
         if (node != null) {
-            System.out.print(node.value+" ");
+            System.out.print(node.value + " ");
             preOrderTree(node.left);
             preOrderTree(node.right);
         }
     }
 
     /**
-     *
-     *           8
-     *         /   \
-     *        6    10
-     *       / \  / \
-     *      5  7 9  11
+     * 8
+     * /   \
+     * 6    10
+     * / \  / \
+     * 5  7 9  11
      *
      * @return
      */
@@ -98,7 +100,12 @@ public class Utils {
         TreeNode treeNode8 = new TreeNode(8, treeNode6, treeNode10);
 
 
-
         return treeNode8;
+    }
+
+    public static void printArr(int arr[]) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf(arr[i] + " ");
+        }
     }
 }
