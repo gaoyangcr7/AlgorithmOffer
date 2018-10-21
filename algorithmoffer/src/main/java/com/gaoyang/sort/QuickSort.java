@@ -33,10 +33,6 @@ public class QuickSort {
                 i++;
             }
 
-            if (i > j) {
-                break;
-            }
-
             Utils.swap(arr, i, j);
 
         }
@@ -48,9 +44,10 @@ public class QuickSort {
 
     public static void main(String[] args) {
         int[] arr = {3, 5, 8, 9, 6, 1, 2, 7, 4};
+        int arrList1[] = {4, 6, 2, 1, 654, 43, 76, 90, 0, 21};
 
-        quickSort(arr, 0, arr.length - 1);
-        Utils.printArr(arr);
+        quickSort(arrList1, 0, arrList1.length - 1);
+        Utils.printArr(arrList1);
     }
 
 

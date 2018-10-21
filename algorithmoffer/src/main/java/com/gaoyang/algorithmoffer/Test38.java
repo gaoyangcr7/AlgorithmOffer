@@ -40,7 +40,7 @@ public class Test38 {
     }
 
     public static void main(String[] args) {
-        char[] str = {'a', 'b'};
+        char[] str = {'a', 'b', 'c'};
 
         permutation(str);
     }

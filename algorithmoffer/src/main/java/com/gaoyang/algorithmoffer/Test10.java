@@ -70,7 +70,7 @@ public class Test10 {
     }
 
     public static void main(String[] args) {
-        int n = 8;
+        int n = 10;
         int result = fibonacci(n);
         System.out.println("result = " + result);
 
